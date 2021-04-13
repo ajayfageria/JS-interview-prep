@@ -11,7 +11,7 @@ executed 1 line at at tiimme
 thread of execution
 where whole js code is executed
 one line at a time
-synchronourd single threded languagr -line by line
+synchronourd single threded language -line by line
 single threaded- one line at time
 
 
@@ -214,6 +214,7 @@ var square4= sqaure(4);when you invokde a function a brand new executinn is crea
 
 
 
+
 // //function statement is same as fn declaration
 // setTimeout(function() {
 //     console.log("timer")
@@ -318,4 +319,78 @@ var square4= sqaure(4);when you invokde a function a brand new executinn is crea
 //example - search bar in e commerce or any other website
 
 
-//
+//episode-10 closures in JS
+//function along with its lexical scope forms closure
+//function bundled together with refrences to its surrounding state(lexical env)
+function outer() {
+    var a = 10;
+
+    function inner() {
+        console.log(a);
+    }
+    inner();
+}
+outer();
+//setTimeout+closures
+// function x() {
+//     for (var i = 1; i <= 5; i++) { //replace let with var
+//         setTimeout(function() {
+//             console.log(i);
+//         }, i * 1000)
+//     }
+//     console.log("closures")
+// }
+// x();
+//first class function() and anonymous function
+//function statement
+//a();
+function a() {
+    console.log("function statement")
+}
+//a();
+//function expression
+//b();
+var b;
+b = function x() { //function acts like a variable
+        console.log("function expression");
+    }
+    //b();
+    //difference between statement vs expression-is hoisting
+    //during the hoisting phase , a is created a memory and
+    // for b is undefined and function is not assigned to b(undefined at the time of creation) so we can not call b.
+    //function declaration
+    //function decalaration are also known as function statement
+    //anonymous function - does not have their own identity.
+var d = function() { //anonymous function
+    return function() { //anonymous function
+        console.log("anonymous function()")
+    }
+}
+
+//named function expression
+var v1;
+v1 = function fun1() { //named to a functon
+    console.log("named function");
+};
+fun1() //give error we can not call named function like this.
+    //diff between parameter and argument
+var x = function(q, w) { //these identifier q,w is called parameters,with the help of param we got the values
+    console.log(q, w);
+}
+x(10, 20) //argument-values passes in the arguments of a function at the time of function calling
+    //first class function- the ability to use the function as an argument or values is called first class function
+    //we can pass function inside function as an argument or we can also return function from a function
+var d = function(param1) {
+    console.log(param1)
+}
+d(function() {
+    console.log("first class function")
+});
+
+//arrow function-part of es6
+var f = () => { //inline function we can say
+        console.log("arrow function")
+    }
+    //callback function
+    //the function which you pass into another funciton is called callback function
+    //JS is the synchronous single threaded language
